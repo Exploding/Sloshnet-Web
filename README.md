@@ -1,2 +1,2 @@
-Sloshnet-Cloud
+Sloshnet-Web
 ==============
