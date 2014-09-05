@@ -9,6 +9,12 @@ gem 'sqlite3', group: :development
 # Use postgres as the database for Active Record
 gem 'pg', group: :production
 
+# Use bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+
+# Use Font Awesome
+gem 'font-awesome-sass'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
