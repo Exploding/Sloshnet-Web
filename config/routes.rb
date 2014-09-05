@@ -26,6 +26,10 @@ SloshnetWeb::Application.routes.draw do
   #     end
   #   end
 
+  resources :recipes
+
+  root 'sloshfront#index'
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -39,7 +43,7 @@ SloshnetWeb::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
