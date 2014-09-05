@@ -1,0 +1,2 @@
+class SloshfrontController < ApplicationController
+end
