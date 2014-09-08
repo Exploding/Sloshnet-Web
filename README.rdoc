@@ -26,3 +26,10 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+== Notes
+The routes are in a rather odd state in between being a pure API and an actual
+interactive web application. Essentially, the root urls for each resource
+return an API-like pure JSON representation of the resource. However, forms to
+create/edit each resource are available at [resource-root]/new or
+[resource-root]/[id]/edit respectively.
