@@ -27,6 +27,7 @@ SloshnetWeb::Application.routes.draw do
   #   end
 
   resources :recipes
+  resources :bases
 
   root 'sloshfront#index'
 
