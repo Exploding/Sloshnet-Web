@@ -1,0 +1,28 @@
+<%= form_for @pump do |f| %>
+  <% if @pump.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pump.errors.count, "error") %> prohibited
+        this pump from being saved:</h2>
+      <ul>
+        <% @pump.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label 'Barcore' %><br>
+    <%= f.collection_select(:barcore_id, Barcore.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.label 'Base' %><br>
+    <%= f.collection_select(:base_id, ::Base.all, :id, :name) %>
+  </p>
+  <p>
+    <%= f.label 'Pump num' %><br>
+    <%= f.text_field :pump_num %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
