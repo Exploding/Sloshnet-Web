@@ -28,7 +28,9 @@ SloshnetWeb::Application.routes.draw do
 
   resources :recipes
   resources :bases
-  resources :barcores
+  resources :barcores do
+    resources :recipes
+  end
   resources :ingredients
   resources :pumps
 

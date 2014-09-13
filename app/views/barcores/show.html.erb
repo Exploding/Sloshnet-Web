@@ -1,0 +1,17 @@
+<h2><%= @barcore.name %></h2>
+
+<h3>Available Recipes</h3>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+  <% end %>
+</ul>
+
+<h3>Active Pumps</h3>
+<ul>
+  <% @barcore.pumps.each do |pump| %>
+    <li><%= link_to '%d: %s' % [pump.pump_num, pump.base.name],
+                    edit_pump_path(pump) %></li>
+  <% end %>
+  <li><i><%= link_to 'Add Pump', new_pump_path %></i></li>
+</ul>
