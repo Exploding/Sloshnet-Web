@@ -20,7 +20,7 @@ class BarcoresController < ApplicationController
   end
 
   def index
-    render text: Barcore.all.to_json
+    @barcores = Barcore.all
   end
 
   def new
@@ -28,8 +28,7 @@ class BarcoresController < ApplicationController
   end
 
   def show
-    barcore = Barcore.find(params[:id])
-    render text: barcore.to_json
+    @barcore = Barcore.find(params[:id])
   end
 
   def update

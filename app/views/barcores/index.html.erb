@@ -1,0 +1,8 @@
+<h2>Barcores</h2>
+
+<ul>
+  <% @barcores.each do |barcore| %>
+    <li><%= link_to barcore.name, barcore_path(barcore) %></li>
+  <% end %>
+  <li><i><%= link_to 'Add barcore', new_barcore_path %></i></li>
+</ul>
