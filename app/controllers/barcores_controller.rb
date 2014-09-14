@@ -29,7 +29,8 @@ class BarcoresController < ApplicationController
 
   def serve
     barcore = Barcore.find(params[:id])
-    # recipe = Recipe.find(params[:recipe_id])
+    recipe = Recipe.find(params[:recipe_id])
+    barcore.queued_recipes << recipe
     # TODO Do anything that needs to be done on when a drink is requested
     redirect_to barcore_path(barcore)
   end

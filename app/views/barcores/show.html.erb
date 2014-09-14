@@ -15,3 +15,10 @@
   <% end %>
   <li><i><%= link_to 'Add Pump', new_pump_path %></i></li>
 </ul>
+
+<h3>Queued Recipes</h3>
+<ul>
+  <% @barcore.queued_recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+  <% end %>
+</ul>
