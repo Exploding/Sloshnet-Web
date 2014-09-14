@@ -20,16 +20,24 @@ class BarcoresController < ApplicationController
   end
 
   def index
-    render text: Barcore.all.to_json
+    @barcores = Barcore.all
   end
 
   def new
     @barcore = Barcore.new
   end
 
-  def show
+  def serve
     barcore = Barcore.find(params[:id])
-    render text: barcore.to_json
+    recipe = Recipe.find(params[:recipe_id])
+    barcore.queued_recipes << recipe
+    # TODO Do anything that needs to be done on when a drink is requested
+    redirect_to barcore_path(barcore)
+  end
+
+  def show
+    @barcore = Barcore.find(params[:id])
+    @recipes = recipes_for_barcore(@barcore)
   end
 
   def update
@@ -45,5 +53,22 @@ class BarcoresController < ApplicationController
   private
     def barcore_params
       params.require(:barcore).permit(:name)
+    end
+
+    def recipes_for_barcore(barcore)
+      barcore_recipe_ids = []
+      Recipe.all.each do |recipe|
+        can_make_recipe = true
+        for base in recipe.bases
+          if not barcore.bases.include? base
+            can_make_recipe = false
+            break
+          end
+        end
+        if can_make_recipe
+          barcore_recipe_ids.push(recipe)
+        end
+      end
+      Recipe.where(id: barcore_recipe_ids)
     end
 end

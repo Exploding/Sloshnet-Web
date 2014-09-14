@@ -28,9 +28,13 @@ SloshnetWeb::Application.routes.draw do
 
   resources :recipes
   resources :bases
-  resources :barcores
+  resources :barcores do
+    resources :recipes, only: [:show]
+  end
   resources :ingredients
   resources :pumps
+
+  post 'barcores/:id/recipes/:recipe_id/serve', to: 'barcores#serve'
 
   root 'sloshfront#index'
 

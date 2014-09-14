@@ -28,8 +28,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    recipe = Recipe.find(params[:id])
-    render text: recipe.to_json
+    @recipe = Recipe.find(params[:id])
+    if params[:barcore_id]
+      @barcore = Barcore.find(params[:barcore_id])
+    else
+      render text: @recipe.to_json
+    end
   end
 
   def update
