@@ -27,6 +27,13 @@ class BarcoresController < ApplicationController
     @barcore = Barcore.new
   end
 
+  def serve
+    barcore = Barcore.find(params[:id])
+    # recipe = Recipe.find(params[:recipe_id])
+    # TODO Do anything that needs to be done on when a drink is requested
+    redirect_to barcore_path(barcore)
+  end
+
   def show
     @barcore = Barcore.find(params[:id])
     @recipes = recipes_for_barcore(@barcore)

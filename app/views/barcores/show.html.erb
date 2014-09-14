@@ -3,7 +3,7 @@
 <h3>Available Recipes</h3>
 <ul>
   <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <li><%= link_to recipe.name, barcore_recipe_path(@barcore, recipe) %></li>
   <% end %>
 </ul>
 

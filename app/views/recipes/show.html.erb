@@ -1,0 +1,12 @@
+<h2><%= @barcore.name %></h2>
+<h3>Recipe: <%= @recipe.name %></h3>
+<h4>Ingredients:</h4>
+<ul>
+  <% @recipe.bases.each do |base| %>
+    <li><%= base.name %></li>
+  <% end %>
+</ul>
+<%= form_tag '%s/%s/serve' % [barcore_path(@barcore), recipe_path(@recipe)],
+             method: 'POST' do %>
+  <%= submit_tag 'Serve this drink!' %>
+<% end %>
